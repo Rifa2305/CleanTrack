@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %} Contact Us{% endblock title %}
+{% block body %}
+
+  <div class="contact-container">
+    <!-- Contact Information -->
+    <div class="contact-info">
+      <h2>📞 Contact Information</h2>
+        <p><strong>Technical Support:</strong><br>
+            +91 9876543210<br>
+            <a href="mailto:support@cleantrack.org">support@cleantrack.org</a>
+        </p>
+        <p><strong>🤝 Partnerships:</strong><br>
+            +91 9123456789<br>
+            <a href="mailto:partners@cleantrack.org">partners@cleantrack.org</a>
+        </p>
+        <p><strong>📧 General Queries:</strong><br>
+            <a href="mailto:info@cleantrack.org">info@cleantrack.org</a>
+        </p>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="form-section">
+      <h2>Write to Us</h2>
+
+      <!-- Flash messages -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, msg in messages %}
+            <div class="flash {{ category }}">{{ msg }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <form action="/contact" method="POST" class="contact-form">
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="phone">Phone *</label>
+        <input type="text" id="phone" name="phone" required>
+
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit" class="btn-primary">Send Message</button>
+      </form>
+    </div>
+  </div>
+{% endblock body %}

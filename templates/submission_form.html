@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %} Complaint Submission{% endblock title %}
+{% block body %}
+
+<div class="container mt-5 pt-5">
+  <div class="col-md-6 mx-auto">
+    <div class="card p-4 shadow rounded-4">
+      <h2 class="mb-4 text-center fw-semibold text-dark">Submit Your Complaint</h2>
+      <form method="POST" action="/complaint_submission">
+        <div class="mb-3">
+          <label for="emailInput" class="form-label">Email</label>
+          <input type="email" class="form-control rounded-3" id="emailInput" name="email_id" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="nameInput" class="form-label">Name</label>
+          <input type="text" class="form-control rounded-3" id="nameInput" name="name" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="addressTextarea" class="form-label">Address</label>
+          <textarea class="form-control rounded-3" id="addressTextarea" name="address" rows="2" required></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="descTextarea" class="form-label">Description</label>
+          <textarea class="form-control rounded-3" id="descTextarea" name="description" rows="4" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100 rounded-3">Submit Complaint</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

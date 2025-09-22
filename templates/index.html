@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+<video autoplay loop muted src="{{ url_for('static', filename='video/Untitled design.mp4') }}" type="video/mp4"></video>
+<div id="main">
+    <div id="page1">
+        <h1>Track. Report. Improve.</h1>
+        <h2>Waste Management Made Smarter.</h2>
+        <p>Say goodbye to missed pickups and unmanaged garbage. Monitor, report, and act — all in one place.</p>
+    </div>
+    <div class="section">
+        <div class="page2">
+            <div class="about-text">
+                <h1 class="fade-in">Who we are</h1>
+                <p class="fade-in">
+                    CleanTrack is a community-focused web platform that empowers local residents to report and track
+                    waste-related problems in their neighborhoods.
+                    Whether it's an overflowing garbage bin, litter in public areas, or irregular waste collection,
+                    we
+                    help ensure such issues are heard and acted upon.
+                </p>
+                <p class="fade-in">
+                    Our platform allows users to submit complaints easily, attach images, and follow real-time
+                    updates
+                    from the concerned authorities.
+                    This encourages transparency, accountability, and faster responses — making the entire process
+                    smoother for everyone.
+                </p>
+                <p class="fade-in">
+                    Built as a student-led initiative, CleanTrack reflects our belief that technology can be a
+                    strong
+                    force for solving real-world problems.
+                    With a simple and user-friendly design, we aim to bring cleanliness, awareness, and civic
+                    responsibility into one digital space.
+                </p>
+                <p class="fade-in">
+                    Together, let's create cleaner, healthier communities — one report at a time.
+                </p>
+            </div>
+            <div class="about-img">
+                <img src="https://saahaszerowaste.com/wp-content/uploads/2025/02/about-us.webp"
+                    alt="Executive team of Saahas Zero Waste">
+            </div>
+        </div>
+        <div class="page3">
+            <h1>How We Help?</h1>
+            <div class="service-container">
+                {% if session['user_id'] %}
+                <a href="{{ url_for('submission') }}" class="service-link">
+                    <div class="service-box">
+                        <h3>Complaint Submission</h3>
+                        <p>Report waste issues in your area with ease using our simple form.</p>
+                    </div>
+                </a>
+                {% else %}
+                <a href="{{ url_for('login') }}" class="service-link">
+                    <div class="service-box">
+                        <h3>Complaint Submission</h3>
+                        <p>Login required to report waste issues using our simple form.</p>
+                    </div>
+                </a>
+                {% endif %}
+                <a href="{{ url_for('dashboard') }}">
+                    <div class="service-box" class="service-link">
+                        <h3>Complaint Tracking</h3>
+                        <p>Track the status of your complaints in real-time on the dashboard.</p>
+                    </div>
+                </a>
+                <a href="{{ url_for('waste_warrior') }}">
+                    <div class="service-box" class="service-link">
+                        <h3>Waste Warrior</h3>
+                        <p>This section is for Waste Warriors — managing complaints, verifying reports, and ensuring
+                            swift
+                            action on waste-related issues</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path
+                    d="M0,0V46.29c47.26,22,104,29.05,158.39,17.39C230.5,50.77,284,22.17,339.83,18.3c54.29-3.76,104.93,18.95,158,35.2C617.11,75.14,674.73,87.86,728.17,75.57c55.74-12.92,104.46-52.81,162.34-57.6,60.24-5,113.28,27.61,169.49,41.39,30.74,7.62,59.66,6.26,89.99-1.27V0Z"
+                    opacity=".25" class="shape-fill"></path>
+                <path
+                    d="M0,0V15.81C47.42,33.29,103.28,45,158.39,43.48c70.36-1.93,136.64-33.84,206.53-36.32,60.9-2.17,113.79,26.41,172,42.09C617.86,66.56,674.17,79.2,728.5,68.06c53.07-10.85,98.5-48.44,153.24-61.52,60.69-14.77,117.91,12.9,176.86,24.3,30.57,5.86,59.1,3.83,89.4-3.9V0Z"
+                    opacity=".5" class="shape-fill"></path>
+                <path
+                    d="M0,0V5.63C47.42,30.92,103.28,58,158.39,58.55c70.36.68,136.64-25.39,206.53-29.22,60.9-3.31,113.79,12.09,172,27.46C617.86,73.36,674.17,94,728.5,84.8c53.07-8.7,98.5-41.47,153.24-51.24,60.69-11.2,117.91,7.84,176.86,17.17,30.57,4.71,59.1,3.31,89.4-1.9V0Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <div class="page4">
+            <h1>What Makes Us Unique</h1>
+            <div class="timeline-container">
+                <div class="timeline-step">
+                    <img src="{{ url_for('static', filename='images/real-time-tracking.png') }}" alt="Real-Time">
+                    <h3>Real-Time Tracking</h3>
+                    <p>Live updates on pickups and routes.</p>
+                </div>
+                <div class="timeline-step">
+                    <img src="{{ url_for('static', filename='images/community.png') }}" alt="Community">
+                    <h3>Community Approach</h3>
+                    <p>Locality and officials working together.</p>
+                </div>
+                <div class="timeline-step">
+                    <img src="{{ url_for('static', filename='images/warning.png') }}" alt="Smart Alerts">
+                    <h3>Smart Alerts</h3>
+                    <p>Instant pickup alerts and reminders.</p>
+                </div>
+                <div class="timeline-step">
+                    <img src="{{ url_for('static', filename='images/line-chart.png') }}" alt="Insights">
+                    <h3>Insights</h3>
+                    <p>Monthly waste tracking analytics.</p>
+                </div>
+                <div class="timeline-step">
+                    <img src="{{ url_for('static', filename='images/triangular-arrows-sign-for-recycle.png') }}"
+                        alt="Eco-Friendly">
+                    <h3>Eco-Friendly Goals</h3>
+                    <p>Promotes better waste segregation and supports local recycling initiatives.</p>
+                </div>
+                <div class="timeline-step">
+                    <img src="{{ url_for('static', filename='images/transparency.png') }}" alt="Transparency">
+                    <h3>Transparent Operations</h3>
+                    <p>No more guesswork — residents and officials can see who collected what and when.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
